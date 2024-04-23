@@ -1,6 +1,6 @@
 use rsemu::{
     bus::bus::Bus,
-    cpu::{riscv32::riscv32::RiscV32, CPU},
+    cpu::{riscv::RiscV32, CPU},
     devices::ram::Ram,
 };
 
@@ -15,6 +15,6 @@ fn main() {
     let mut cpu = RiscV32::new();
     cpu.pc = 0x80000000;
     loop {
-        cpu.execute(&mut bus);
+        cpu.step(&mut bus);
     }
 }

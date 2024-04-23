@@ -1,5 +1,7 @@
 #[macro_use]
-pub mod decode;
-pub mod op;
-pub mod op_imm;
-pub mod riscv32;
+mod decode;
+mod op;
+mod op_imm;
+mod riscv32;
+
+pub use self::riscv32::RiscV32;
