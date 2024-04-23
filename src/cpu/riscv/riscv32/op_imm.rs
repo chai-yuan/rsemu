@@ -1,6 +1,6 @@
-use crate::cpu::decode::*;
-use crate::cpu::riscv32::exception::Exception;
-use crate::cpu::riscv32::riscv32::RiscV32;
+use crate::cpu::riscv::exception::Exception;
+use crate::cpu::riscv::riscv32::decode::*;
+use crate::cpu::riscv::riscv32::riscv32::RiscV32;
 
 impl RiscV32 {
     pub fn execute_op_imm(&mut self, inst: u32) {

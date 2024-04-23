@@ -1,5 +1,5 @@
 use crate::bus::bus::Bus;
-use crate::cpu::riscv32::exception::Exception;
+use crate::cpu::riscv::exception::Exception;
 use crate::cpu::CPU;
 
 pub struct RiscV32 {
@@ -21,8 +21,10 @@ impl RiscV32 {
 }
 
 impl CPU for RiscV32 {
-    fn execute(&mut self, bus: &mut Bus) {
+    fn step(&mut self, bus: &mut Bus) {
+        // 取指令
         let inst = bus.read(self.pc as u64, 4) as u32;
+        // 执行
         match inst & 0x7f {
             0b0110011 => self.execute_op(inst),
             _ => self.except = Some(Exception::IllegalInstruction),
